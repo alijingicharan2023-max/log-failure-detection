@@ -3,33 +3,29 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 
-# Step 1: Load data
+# Load dataset
 data = pd.read_csv("data.csv")
 
-# Fix column names (important)
+# Clean column names
 data.columns = data.columns.str.strip().str.lower()
 
-# Step 2: Feature extraction
+# Feature extraction
 vectorizer = TfidfVectorizer()
 X = vectorizer.fit_transform(data['log'])
 y = data['label']
 
-print("Feature extraction done")
-
-# Step 3: Train-test split
+# Split data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
 
-# Step 4: Train model
+# Train model
 model = LogisticRegression()
 model.fit(X_train, y_train)
 
-print("Model trained successfully")
-
-# Step 5: Evaluate
+# Evaluate model
 accuracy = model.score(X_test, y_test)
-print("Accuracy:", accuracy)
+print("Model Accuracy:", accuracy)
 
-# Step 6: Prediction
+# Prediction
 new_log = ["Disk error occurred"]
 new_X = vectorizer.transform(new_log)
 
