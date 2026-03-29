@@ -1,9 +1,9 @@
-"log,label"
-"System running normally,0"
-"Disk failure detected,1"
-"Memory usage high,1"
-"CPU overload warning,1"
-"Application started,0"
-"Configuration loaded successfully,0"
-"Network timeout error,1"
-"Service restarted successfully,0"
+log,label
+System running normally,0
+Disk failure detected,1
+Memory usage high,1
+CPU overload warning,1
+Application started,0
+Configuration loaded successfully,0
+Network timeout error,1
+Service restarted successfully,0
