@@ -6,54 +6,40 @@ from sklearn.linear_model import LogisticRegression
 # Page config
 st.set_page_config(page_title="Failure Detection", layout="centered")
 
-# 🎨 FINAL UI CSS (Fixed Background + Premium Look)
+# 🎨 UI CSS
 st.markdown("""
 <style>
-
-/* Full background (IMPORTANT FIX) */
 .stApp {
     background: linear-gradient(135deg, #e3f2fd, #f9fbfd);
 }
-
-/* Center container */
 .container {
     max-width: 700px;
     margin: auto;
     padding-top: 40px;
 }
-
-/* Title */
 .title {
     text-align: center;
     font-size: 42px;
     font-weight: 700;
     color: #1f2d3d;
 }
-
-/* Subtitle */
 .subtitle {
     text-align: center;
     font-size: 16px;
     color: #6c757d;
     margin-bottom: 30px;
 }
-
-/* Card */
 .card {
     background: white;
     padding: 30px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
-
-/* Input */
 .stTextInput input {
     border-radius: 10px;
     padding: 10px;
     border: 1px solid #ddd;
 }
-
-/* Button */
 .stButton button {
     border-radius: 10px;
     padding: 10px 24px;
@@ -62,13 +48,9 @@ st.markdown("""
     border: none;
     font-weight: 500;
 }
-
-/* Button hover */
 .stButton button:hover {
     background-color: #34495e;
 }
-
-/* Result box */
 .result {
     margin-top: 20px;
     padding: 14px;
@@ -77,7 +59,6 @@ st.markdown("""
     text-align: center;
     font-size: 16px;
 }
-
 </style>
 """, unsafe_allow_html=True)
 
@@ -103,8 +84,20 @@ y = data['label']
 model = LogisticRegression()
 model.fit(X, y)
 
-# Input
-log_input = st.text_input("Enter system log")
+# 🔥 Sample logs (NEW FEATURE)
+sample_logs = [
+    "Disk failure detected",
+    "System running normally",
+    "CPU overheating warning",
+    "Network timeout error",
+    "Database connected successfully"
+]
+
+# Dropdown
+selected_log = st.selectbox("Choose sample log (optional)", [""] + sample_logs)
+
+# Input box (auto-filled if selected)
+log_input = st.text_input("Enter system log", value=selected_log)
 
 # Predict
 if st.button("Predict"):
