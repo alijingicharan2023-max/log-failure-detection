@@ -84,19 +84,27 @@ y = data['label']
 model = LogisticRegression()
 model.fit(X, y)
 
-# 🔥 Sample logs (NEW FEATURE)
+# 🔥 Balanced Sample Logs
 sample_logs = [
+    # 🔴 Failure Logs
     "Disk failure detected",
-    "System running normally",
     "CPU overheating warning",
     "Network timeout error",
-    "Database connected successfully"
+    "Memory overflow error",
+    "System crash detected",
+
+    # 🟢 Success Logs
+    "System running normally",
+    "Application started successfully",
+    "Database connected successfully",
+    "Configuration loaded successfully",
+    "Service running without errors"
 ]
 
 # Dropdown
 selected_log = st.selectbox("Choose sample log (optional)", [""] + sample_logs)
 
-# Input box (auto-filled if selected)
+# Input box
 log_input = st.text_input("Enter system log", value=selected_log)
 
 # Predict
