@@ -1,0 +1,47 @@
+Test Case 1:
+Input: Disk failure detected
+Expected Output: Failure Likely
+
+Test Case 2:
+Input: Memory usage high
+Expected Output: Failure Likely
+
+Test Case 3:
+Input: CPU overload warning
+Expected Output: Failure Likely
+
+Test Case 4:
+Input: Network timeout error
+Expected Output: Failure Likely
+
+Test Case 5:
+Input: System running normally
+Expected Output: System Normal
+
+Test Case 6:
+Input: Application started
+Expected Output: System Normal
+
+Test Case 7:
+Input: Configuration loaded successfully
+Expected Output: System Normal
+
+Test Case 8:
+Input: Database connected successfully
+Expected Output: System Normal
+
+Test Case 9:
+Input: Service restarted successfully
+Expected Output: System Normal
+
+Test Case 10:
+Input: High temperature warning
+Expected Output: Failure Likely
+
+Test Case 11:
+Input: Disk read error
+Expected Output: Failure Likely
+
+Test Case 12:
+Input: Backup completed successfully
+Expected Output: System Normal
